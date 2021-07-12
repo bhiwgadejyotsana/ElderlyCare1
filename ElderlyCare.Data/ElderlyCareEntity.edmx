@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ElderlyCareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblCareTaker">
+          <Key>
+            <PropertyRef Name="CareTakerId" />
+          </Key>
+          <Property Name="CareTakerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Contactno" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+          <Property Name="PatientRelation" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblElderPerson">
+          <Key>
+            <PropertyRef Name="ElderPersonId" />
+          </Key>
+          <Property Name="ElderPersonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Contactno" Type="nvarchar" MaxLength="50" />
+          <Property Name="DoctorName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DoctorContactno" Type="nvarchar" MaxLength="50" />
+          <Property Name="HospitalName" Type="nvarchar" MaxLength="100" />
+          <Property Name="HospitalContactno" Type="nvarchar" MaxLength="50" />
+          <Property Name="CareTaker" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblReminder">
+          <Key>
+            <PropertyRef Name="ReminderId" />
+          </Key>
+          <Property Name="ReminderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReminderText" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ElderPersonId" Type="int" />
+          <Property Name="StartTime" Type="time" Precision="7" />
+          <Property Name="EndTime" Type="time" Precision="7" />
+        </EntityType>
+        <EntityContainer Name="ElderlyCareModelStoreContainer">
+          <EntitySet Name="tblCareTaker" EntityType="Self.tblCareTaker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblElderPerson" EntityType="Self.tblElderPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblReminder" EntityType="Self.tblReminder" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ElderlyCareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblCareTaker">
+          <Key>
+            <PropertyRef Name="CareTakerId" />
+          </Key>
+          <Property Name="CareTakerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Contactno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="PatientRelation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblElderPerson">
+          <Key>
+            <PropertyRef Name="ElderPersonId" />
+          </Key>
+          <Property Name="ElderPersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Contactno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DoctorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DoctorContactno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HospitalName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HospitalContactno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CareTaker" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ElderlyCareEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblCareTakers" EntityType="Self.tblCareTaker" />
+          <EntitySet Name="tblElderPersons" EntityType="Self.tblElderPerson" />
+          <EntitySet Name="tblReminders" EntityType="ElderlyCareModel.tblReminder" />
+        </EntityContainer>
+        <EntityType Name="tblReminder">
+          <Key>
+            <PropertyRef Name="ReminderId" />
+          </Key>
+          <Property Name="ReminderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReminderText" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ElderPersonId" Type="Int32" />
+          <Property Name="StartTime" Type="Time" Precision="7" />
+          <Property Name="EndTime" Type="Time" Precision="7" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ElderlyCareModelStoreContainer" CdmEntityContainer="ElderlyCareEntities1">
+          <EntitySetMapping Name="tblCareTakers">
+            <EntityTypeMapping TypeName="ElderlyCareModel.tblCareTaker">
+              <MappingFragment StoreEntitySet="tblCareTaker">
+                <ScalarProperty Name="CareTakerId" ColumnName="CareTakerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Contactno" ColumnName="Contactno" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PatientRelation" ColumnName="PatientRelation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblElderPersons">
+            <EntityTypeMapping TypeName="ElderlyCareModel.tblElderPerson">
+              <MappingFragment StoreEntitySet="tblElderPerson">
+                <ScalarProperty Name="ElderPersonId" ColumnName="ElderPersonId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contactno" ColumnName="Contactno" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="DoctorContactno" ColumnName="DoctorContactno" />
+                <ScalarProperty Name="HospitalName" ColumnName="HospitalName" />
+                <ScalarProperty Name="HospitalContactno" ColumnName="HospitalContactno" />
+                <ScalarProperty Name="CareTaker" ColumnName="CareTaker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblReminders">
+            <EntityTypeMapping TypeName="ElderlyCareModel.tblReminder">
+              <MappingFragment StoreEntitySet="tblReminder">
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="ElderPersonId" ColumnName="ElderPersonId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ReminderText" ColumnName="ReminderText" />
+                <ScalarProperty Name="ReminderId" ColumnName="ReminderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

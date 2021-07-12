@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Registration form of  Elder Person</h2>
+<script src="~/Content/Pages/jquery-3.5.1.min.js"></script>
+<script src="~/Content/Pages/ElderPerson.js"></script>
+
+<div class="col-md-12">
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <input id="hdnElderPersonId type=" text" " name="ElderPersonId" class="form-control " readonly />
+        </div>
+        <div class="form-group">
+            <input id="txtName" type="text" placeholder="Enter Elder Person Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input id="txtAge" type="text" placeholder="Enter Elder Person Age" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input id="txtAddress" type="text" placeholder="Enter Elder Person Address" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input id="txtContactno" type="text" placeholder="Enter Elder Person Contact No." class="form-control" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <input id="txtDoctorName" type="text" placeholder="Enter Doctor Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input id="txtDoctorContactno" type="text" placeholder="Enter Doctor Contact No." class="form-control" />
+        </div>
+        <div class="form-group">
+            <input id="txtHospitalName" type="text" placeholder="Enter Hospital Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input id="txtHospitalContactno" type="text" placeholder="Enter Hospital Contact No." class="form-control" />
+        </div>
+        <div class="form-group">
+            <input id="txtCareTaker" type="text" placeholder="Enter Care Taker Name" class="form-control" />
+        </div>
+    </div>
+
+</div>
+<button id="btnSave" value="submit" onclick=saveRegistration()>SAVE</button>
+
+
+<div class="col-sm-12" style="margin-left: -154px;">
+    <table id="tblElderPerson" border=" 1" class="table table-striped table-bordered table-hover table-condensed">
+        <thead>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <th>ElderPersonId</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>Contact No</th>
+        <th>Doctor's Name</th>
+        <th>Doctor's Contact No.</th>
+        <th>Hospital Name</th>
+        <th>Hospital's Contact No.</th>
+        <th>Care Taker</th>
+
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
